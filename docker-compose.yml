@@ -60,7 +60,6 @@ services:
       - ./caddy:/etc/caddy
     environment:
       - ADMIN_USER=${ADMIN_USER:-admin}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
       - ADMIN_PASSWORD_HASH=${ADMIN_PASSWORD_HASH}      
     restart: unless-stopped
     networks:
