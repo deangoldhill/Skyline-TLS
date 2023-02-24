@@ -54,7 +54,7 @@ Deploy the containers
 
 **Replace "secretpassword" with your desired password, and "passwordhash" with the hash generated in the previous step.
 ```bash
-ADMIN_USER='admin' ADMIN_PASSWORD='secretpassword' ADMIN_PASSWORD_HASH='passwordhash' docker-compose up -d
+ADMIN_USER='admin' ADMIN_PASSWORD_HASH='passwordhash' docker-compose up -d
 ```
 
 Get the CA certificate data from the Caddy server - This is required by the Checkpoint machines to trust the server certificate.
