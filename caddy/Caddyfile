@@ -1,5 +1,6 @@
 DOCKERHOST.DOMAIN.COM:3000 {
-    reverse_proxy grafana:3000  
+    reverse_proxy grafana:3000
+    tls internal
 }
 
 DOCKERHOST.DOMAIN.COM:9090 {
@@ -7,5 +8,6 @@ DOCKERHOST.DOMAIN.COM:9090 {
         {$ADMIN_USER} {$ADMIN_PASSWORD_HASH}
     }
     reverse_proxy prometheus:9090
+    tls internal
 }
 
