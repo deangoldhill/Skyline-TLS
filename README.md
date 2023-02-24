@@ -67,7 +67,8 @@ docker exec caddy cat /data/caddy/pki/authorities/local/root.crt
 
 ## Setup Grafana
 
-Navigate to `http://<DOCKERHOST>:3000` and login with user ***admin*** password ***admin***. You can change the password at first login, or you can modify the credentials in the compose file.
+Navigate to `http://<DOCKERHOST.DOMAIN.COM>:3000` and login with user ***admin*** password ***admin***. You can change the password at first login.
+**Note - you must navigate to the Grafana portal using the hostname, not the IP address. Otherwsie you will get an SSL error.
 
 
 Grafana is preconfigured with dashboards and Prometheus as the default data source:
