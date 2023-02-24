@@ -47,7 +47,7 @@ Natigate to the Caddy directory, and modify the file to change the placeholder h
 
 **Modify "mydocker.mydomain.com" with your DNS hostname created in the first step.
 ```bash
-cd Skyline-TLS
+cd skyline-TLS
 sed -i 's/DOCKERHOST.DOMAIN.COM/mydocker.mydomain.com/' caddy/Caddyfile
 ```
 Deploy the containers
