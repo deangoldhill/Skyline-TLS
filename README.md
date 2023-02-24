@@ -41,15 +41,14 @@ docker run --rm caddy:2.6.4 caddy hash-password --plaintext 'secretpassword'
 Clone this repository on your Docker host:
 
 ```bash
-git clone https://github.com/deangoldhill/skyline.git
+git clone https://github.com/deangoldhill/skyline-TLS.git
 ```
 Natigate to the Caddy directory, and modify the file to change the placeholder hostname "DOCKERHOST.DOMAIN.COM" with the DNS hostname created in the first step.
 
 **Modify "mydocker.mydomain.com" with your DNS hostname created in the first step.
 ```bash
-cd caddy
-sed -i 's/DOCKERHOST.DOMAIN.COM/mydocker.mydomain.com/' Caddyfile
-cd ..
+cd Skyline-TLS
+sed -i 's/DOCKERHOST.DOMAIN.COM/mydocker.mydomain.com/' caddy/Caddyfile
 ```
 Deploy the containers
 
