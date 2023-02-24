@@ -138,3 +138,29 @@ vi payload.json
 /opt/CPotelcol/REST.py --set_open_telemetry "$(cat payload.json)"
 
 ```
+
+At this point, you should be able to log into the Grafana portal and see graphs being populated.
+
+## Troubleshooting
+If all the above steps completed succesfully but Grafana graphs are not populating, it's probably an issue with the Checkpoint gateways connecting to the Prometheus server.
+Review the OpenTelemtry agent log on the Checkpoint machine:
+```bash
+tail -f /opt/CPotelcol/otelcol.log
+```
+Most common errors are:
+
+Permanent error: Post \"https://DOCKERHOST:9090/api/v1/write\": dial tcp DOCKERHOST:9090: i/o timeout", "dropped_items"
+*Reason - This indicates the TCP communication is failing - Checkpoint machine is not getting a response
+*Action - Check basic traffic flow, routing, firewall rules, DNS resolution etc.
+
+Permanent error: Post \"https://DOICKERHOST:9090/api/v1/write\": http: server gave HTTP response to HTTPS client", "dropped_items"
+*Reason - The Caddy server failed to configure TLS, and is responding with plain HTTP.
+*Action - This is probably to do with the DNS hostname used in the Checkpoint configuration not matching what is specified in the Caddyfile. It must martch exactly otherwsie Caddy will reject the TLS client hello.
+
+Permanent error: Post \"https://DOCKERHOST.DOMAIN.COM:9090/api/v1/write\": x509: certificate signed by unknown authority
+*Reason - The checkpoint machine is failing to validate the Caddy server certificate. 
+*Action - get the CA certificate data from the Caddy container, update the Checkpoint configuration payload and run /opt/CPotelcol/REST.py --set_open_telemetry "$(cat payload.json)" again. be sure to remove the line break in the certificate data - The certificate data must be one single line including the '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----' parts.
+
+Once everything is working correctly, the log files should end with "Everything is ready. Begin running and processing data"
+
+If you have tried these steps but it's stil not working, please open a Github issue ticket.
