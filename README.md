@@ -101,7 +101,7 @@ VSX server and indavidual virtual system stastics
 Create a configuration payload file on each Check Point machine with the following contents, and import it.
 
 ***paste the following and modify the following values*** 
-1. Modify "DOCKERHOST" with the DNS hostname of your docker host
+1. Modify "DOCKERHOST.DOMAIN.COM" with the DNS hostname of your docker host
 2. Modify "SECRETPASSWORD" with the desired password
 3. Modify "CERTIFICATE" with the CA certificate data from the previous step
 
@@ -128,7 +128,7 @@ vi payload.json
                 }
             },
             "type": "prometheus-remote-write",
-            "url": "https://DOCKERHOST:9090/api/v1/write"
+            "url": "https://DOCKERHOST.DOMAIN.COM:9090/api/v1/write"
         }
     ]}
 } 
