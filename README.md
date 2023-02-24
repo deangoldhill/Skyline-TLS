@@ -52,7 +52,7 @@ sed -i 's/DOCKERHOST.DOMAIN.COM/mydocker.mydomain.com/' caddy/Caddyfile
 ```
 Deploy the containers
 
-**Replace "secretpassword" with your desired password, and "passwordhash" with the hash generated in the previous step.
+**Replace "passwordhash" with the hash generated in the previous step.
 ```bash
 ADMIN_USER='admin' ADMIN_PASSWORD_HASH='passwordhash' docker-compose up -d
 ```
