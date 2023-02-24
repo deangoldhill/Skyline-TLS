@@ -162,8 +162,7 @@ Permanent error: Post \"https://DOICKERHOST:9090/api/v1/write\": http: **server 
 *Action - This is probably to do with the DNS hostname used in the Checkpoint configuration not matching what is specified in the Caddyfile. It must martch exactly otherwsie Caddy will reject the TLS client hello.
 
 Permanent error: Post \"https://DOCKERHOST.DOMAIN.COM:9090/api/v1/write\": x509: **certificate signed by unknown authority**
-
-*Reason - The checkpoint machine is failing to validate the Caddy server certificate. 
+<br>*Reason - The checkpoint machine is failing to validate the Caddy server certificate. 
 
 *Action - get the CA certificate data from the Caddy container, update the Checkpoint configuration payload and run /opt/CPotelcol/REST.py --set_open_telemetry "$(cat payload.json)" again. be sure to remove the line break in the certificate data - The certificate data must be one single line including the '-----BEGIN CERTIFICATE-----' and '-----END CERTIFICATE-----' parts.
 
