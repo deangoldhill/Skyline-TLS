@@ -5,10 +5,9 @@ this docker compose script will install and configure an instance of Prometheus 
 The script will pull the official images, and use the Grafana provisioning feature to automatically configure the Grafana datasource and dashboard template.
 [Prometheus](https://prometheus.io/), [Grafana](http://grafana.org/), [Skyline](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk178566), [Caddy](https://caddyserver.com)
 
-This Branch (TLS) configures HTTPS comunication between the browser and the Grafana portal, and between the Checkpoint appliances and the Prometheus server.
-If TLS is not required, rather follow the No-TLS branch which requires fewer steps.
+**NOTE - This configuration (Skyline-TLS) configures HTTPS comunication between the browser and the Grafana portal, and between the Checkpoint appliances and the Prometheus server. For testing purposes, or if TLS is not required, rather please refer to the Skyline repository which requires fewer steps [Skyline](https://github.com/deangoldhill/Skyline)
 
-This TLS branch uses a Caddyserver container, which acts as a reverse proxy and automatically manages the TLS configuration and certificate management including certificate renewal.
+This configuration uses a Caddyserver container, which acts as a reverse proxy and automatically manages the TLS configuration and certificate management including certificate renewal.
 
 ## DNS Record
 Caddy requires that a hostname is used when connecting to the Prometheus and Grafana servers rarther than the IP address, otherwsie the TLS client hello will be rejected.
