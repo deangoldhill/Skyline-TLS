@@ -109,8 +109,8 @@ Create a configuration payload file on each Check Point machine with the followi
 ```bash
 cd /var/tmp
 vi payload.json
-
-
+```
+```bash
  {
     "enabled": true,
     "export-targets": {"add": [
