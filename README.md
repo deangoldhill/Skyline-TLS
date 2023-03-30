@@ -133,9 +133,9 @@ vi payload.json
         }
     ]}
 } 
+```
 
-
-
+```bash
 /opt/CPotelcol/REST.py --set_open_telemetry "$(cat payload.json)"
 
 ```
